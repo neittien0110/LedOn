@@ -141,7 +141,7 @@ def collect_and_upload():
     print("-" * 45)
 
 def ssh_helper():
-    print(f'Truy cập Dev Kit qua SSH:  ssh -t {PYNQ_USER}@{PYNQ_IP} "cd {remote_project_dir} && bash"')
+    print(f'Truy cập Dev Kit qua SSH:  ssh -t {PYNQ_USER}@{PYNQ_IP} "cd {remote_project_dir} && bash -l"')
 
 if __name__ == "__main__":
     init()
