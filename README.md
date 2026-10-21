@@ -23,15 +23,6 @@ Dùng mã Python điều khiển đèn 4 Led bật tắt.
     - Do sử dụng tên mặc định của board đã khai báo sẵn, nên không thể thiết lập cố định các GPIO này là Input hay Output, mà phải qua code cấu hình phía Arm core.\
     ![alt text](images/declareGPIO_0_ipConfiguration.png)\
 
-## Artix-7 Core - Biên dịch và nạp kit
-
-- Biên dịch: Click **Generate Bitstream**
-- Kết nôi:
-  - Cắm dây USB Micro vào Dev-Kit để cấp nguồn
-  - Căm dây mạng RJ45 giữa Dev-Kit và máy tính\
-  ![alt text](images/laptop-devkit.png)
-- Nạp kit: Chạy script **CollectBitStream.py**. _(Hiệu chỉnh địa chỉ IP của dev kit nếu cần)_
-
 ## ARM Core - Mã Python 
 
 - [Mã nguồn để chạy web Jupiter trên phần Arm Core, kết nối tới phần IP core điều khiển led](./LedOn.ipynb)
@@ -54,3 +45,21 @@ Dùng mã Python điều khiển đèn 4 Led bật tắt.
   leds.write(0, value)
   print(f"✅ Đã ghi giá trị {value} vào LED!")
   ```
+
+## Artix-7 Core - Biên dịch và nạp kit
+
+- Biên dịch: Click **Generate Bitstream**
+- Kết nôi:
+  - Cắm dây USB Micro vào Dev-Kit để cấp nguồn
+  - Căm dây mạng RJ45 giữa Dev-Kit và máy tính\
+  ![alt text](images/laptop-devkit.png)
+- Nạp kit: Chạy script **CollectBitStream.py**. _(Hiệu chỉnh địa chỉ IP của dev kit nếu cần)_
+- Truy cập vào phần ARM Core thông qua SSH (Arm core đã có sẵn ubuntu).
+  ```shell
+  ssh -t xilinx@192.168.2.99 "cd /home/xilinx/LedOn && bash -l"
+  ```
+  và chạy lệnh mẫu trên arm core
+  ```shell
+  ./runme.sh
+  ```
+- Hãy xem file runme.sh, và tự tùy chỉnh tham số dòng lệnh để đèn led tắt bật đúng như mong đợi.
