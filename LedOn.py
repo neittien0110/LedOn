@@ -2,7 +2,7 @@ from pynq import Overlay
 import sys
 
 # Nạp Overlay
-ol = Overlay("../LedOn/LedOn.bit")
+ol = Overlay("./LedOn.bit")
 leds = ol.axi_gpio_0
 
 # Ép hướng thành Output (Ghi vào thanh ghi TRI tại offset 0x04)

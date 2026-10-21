@@ -45,7 +45,7 @@ def collect_and_upload():
             m_date, diff = get_file_info(path)
             print(f"📝 {label} found: {m_date} ({diff})")
         else:
-            print(f"❌ {label} NOT FOUND at: {path}")
+            print(f"❌ u{label} NOT FOUND at: {path}")
             all_exists = False
 
     if not all_exists:
